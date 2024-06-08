@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: Course Selection System
+  description: API for the course selection system.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+paths:
+  /api/teacher:
+    get:
+      summary: List all teachers
+      responses:
+        '200':
+          description: A list of teachers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+    post:
+      summary: Create a new teacher
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: Teacher created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /api/teacher/{id}:
+    get:
+      summary: List courses for a specific teacher
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of courses for the teacher
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    tag:
+                      type: string
+                    content:
+                      type: string
+                    startTime:
+                      type: string
+                    endTime:
+                      type: string
+  /api/course:
+    get:
+      summary: List all courses
+      responses:
+        '200':
+          description: A list of courses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    tag:
+                      type: string
+                    content:
+                      type: string
+                    startTime:
+                      type: string
+                    endTime:
+                      type: string
+    post:
+      summary: Create a new course
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                tag:
+                  type: string
+                content:
+                  type: string
+                startTime:
+                  type: string
+                endTime:
+                  type: string
+                teacherId:
+                  type: integer
+      responses:
+        '201':
+          description: Course created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /api/course/{id}:
+    put:
+      summary: Update a course
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                tag:
+                  type: string
+                content:
+                  type: string
+                startTime:
+                  type: string
+                endTime:
+                  type: string
+                teacherId:
+                  type: integer
+      responses:
+        '200':
+          description: Course updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+    delete:
+      summary: Delete a course
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Course deleted successfully
