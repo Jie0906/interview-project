@@ -10,6 +10,7 @@ This course selection system is for 三宏科技 interview.
 .
 ├── app.js
 ├── config
+│   └── jest.config.js
 ├── controllers
 │   ├── CourseController.js
 │   ├── StudentController.js
@@ -32,6 +33,7 @@ This course selection system is for 三宏科技 interview.
 ├── structure.txt
 ├── swagger.yml
 ├── tests
+│   └── teacherController.test.js
 └── utils
 ```
 ## Installing & Usage
