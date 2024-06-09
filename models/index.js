@@ -20,11 +20,11 @@ db.StudentCourse = require("./StudentCourseModel")(sequelize, Sequelize)
 db.Teacher.hasMany(db.Course, { foreignKey: 'teacherId' });
 db.Course.belongsTo(db.Teacher, { foreignKey: 'teacherId' });
 
-db.Teacher.belongsToMany(db.Student, { through: db.TeacherStudent, foreignKey: 'teacherId' });
-db.Student.belongsToMany(db.Teacher, { through: db.TeacherStudent, foreignKey: 'studentId' });
-db.Student.belongsToMany(db.Course, { through: db.StudentCourse, foreignKey: 'studentId' });
-db.Course.belongsToMany(db.Student, { through: db.StudentCourse, foreignKey: 'courseId' });
+db.Teacher.belongsToMany(db.Student, { through: db.TeacherStudent, foreignKey: 'teacherId' })
+db.Student.belongsToMany(db.Teacher, { through: db.TeacherStudent, foreignKey: 'studentId' })
+db.Student.belongsToMany(db.Course, { through: db.StudentCourse, foreignKey: 'studentId' })
+db.Course.belongsToMany(db.Student, { through: db.StudentCourse, foreignKey: 'courseId' })
 
 
 
-module.exports = db;
+module.exports = db

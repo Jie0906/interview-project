@@ -1,0 +1,30 @@
+.
+├── app.js
+├── config
+│   └── jest.config.js
+├── controllers
+│   ├── CourseController.js
+│   ├── StudentController.js
+│   └── TeacherController.js
+├── middleware
+│   └── errorHandler.js
+├── models
+│   ├── CourseModel.js
+│   ├── StudentCourseModel.js
+│   ├── StudentModel.js
+│   ├── TeacherModel.js
+│   ├── TeacherStudentModel.js
+│   └── index.js
+├── package-lock.json
+├── package.json
+├── routes
+│   ├── courseRoute.js
+│   └── teacherRoute.js
+├── server.js
+├── structure.txt
+├── swagger.yml
+├── tests
+│   └── teacherController.test.js
+└── utils
+
+8 directories, 20 files

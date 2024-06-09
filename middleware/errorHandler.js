@@ -36,7 +36,7 @@ const errorHandler = (err, req, res, next) => {
             status: 404
           }
         })
-        break;
+        break
       default:
         res.status(status).json({
           error: {
@@ -44,15 +44,15 @@ const errorHandler = (err, req, res, next) => {
             status: status
           }
         })
-        break;
+        break
         case 409:
           res.status(409).json({
             error: {
               message: message || 'Conflict',
               status: 409
             }
-          });
-          break;
+          })
+          break
     }
   }
   
